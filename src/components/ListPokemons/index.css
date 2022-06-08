@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.paper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 45rem;
+    border-left: 10rem solid #023047;
+    border-right: 10rem solid #d62828;
+}
+
+.lista {
+    font-size: 1.2em;
+    font-family: 'Open Sans', sans-serif;
+    padding: 2rem;
+}
