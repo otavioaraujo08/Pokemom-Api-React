@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
-
-a {
-    text-decoration: none;
-    color: #ffffff;
+.content {
+    background-image: url("https://c.wallhere.com/photos/71/17/1920x1080_px_landscape_Pixel_Art_pokemon-743848.jpg!d");
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
-.paper {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 45rem;
-    border-left: 10rem solid #023047;
-    border-right: 10rem solid #d62828;
+.card {
+    /* From https://css.glass */
+    background: rgba(84, 62, 62, 0.61);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.9px);
+    -webkit-backdrop-filter: blur(1.9px);
+    border: 1px solid rgba(84, 62, 62, 0.25);
 }
 
-.lista {
-    font-size: 1.2em;
-    font-family: 'Open Sans', sans-serif;
-    padding: 2rem;
+ul {
+    width: 100px;
+    color: darkblue;
+    background: #ffe5e5;
+    list-style-type: none;
+    margin-left: 35px;
 }
