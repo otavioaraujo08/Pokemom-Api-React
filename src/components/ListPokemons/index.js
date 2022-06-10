@@ -1,7 +1,7 @@
 import './index.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react';
-import { Paper } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function ListPokemons(){
     // Nossa lista que sera preenchida pela requisição
@@ -18,24 +18,22 @@ function ListPokemons(){
     }, []);
 
     return(
-        <Paper 
-            sx={{
-                bgcolor: 'warning.main',
-                borderRadius: 10
-            }}
-            
-            className='paper'
-        >
-            <ul className='lista'>
-                {list.map((item) => (
-                    <li key={item.name}>
-                        <a href={"/pokemon/"+ item.name}>
-                            {item.name}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </Paper>
+        <>
+            <div className='content'>
+                <div className='card'>
+                    <ul>
+                        {list.map((item) => (
+                            <li key={item.name}>
+                                <Link to={"/pokemon/"+ item.name}>
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        
+        </>
     )
 }
 
