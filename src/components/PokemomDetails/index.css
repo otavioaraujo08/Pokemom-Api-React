@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+.notFoundPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #7D78A3;
+}
+
 .box {
     background: #7F7F7F;
     height: 100%;
@@ -40,9 +51,15 @@
     text-align: center;
 }
 
+.nomes {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 1.5rem;
+}
+
 .imagen,
 .infos,
-.estatisticas {
+.estatisticas,
+.golpes {
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
     -webkit-border-top-left-radius: 1rem;
@@ -68,7 +85,12 @@
     width: auto;
 }
 
-.estatisticas {
+.titulos {
+    font-family: 'Bitter', serif;
+}
+
+.estatisticas,
+.golpes {
     max-width: 50rem;
     margin: 1.95rem auto;
     background: #FFFFFF;
@@ -78,4 +100,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.golpes {
+    display: flex;
+    justify-content: center;
+}
+
+.golpes .golpesBotoes:nth-child(n+5) {
+    display: none;
 }

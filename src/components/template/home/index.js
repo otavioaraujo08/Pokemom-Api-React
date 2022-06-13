@@ -20,7 +20,7 @@ function Home() {
                 </header>
 
                 <div className='body'>
-                    <div class="div1">
+                    <div className="div1">
                         <h2>Charmander</h2>
                         
                         <Box
@@ -43,6 +43,9 @@ function Home() {
                                 color="error" 
                                 className='buttons'
                                 startIcon={<LocalFireDepartmentIcon />}
+                                sx = {{
+                                    mt: 1,
+                                }}
                             >
                                 
                                 Evolui para: Charmeleon
@@ -52,6 +55,9 @@ function Home() {
                                 color="error" 
                                 className='buttons'
                                 startIcon={<FormatColorResetIcon />}
+                                sx = {{
+                                    mt: 1,
+                                }}
                             >
                                 Fraqueza: Água
                             </Button>
@@ -79,7 +85,7 @@ function Home() {
                         
                     </div>
                     
-                    <div class="div2">
+                    <div className="div2">
                         <img 
                         src={Charmander} 
                         alt="Pokemon-Logo"
