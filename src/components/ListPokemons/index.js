@@ -2,6 +2,7 @@ import './index.css'
 import api from '../../services/api'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Typography } from '@mui/material';
 
 function ListPokemons(){
     // Nossa lista que sera preenchida pela requisição
@@ -20,19 +21,24 @@ function ListPokemons(){
     return(
         <>
             <div className='content'>
-                <div className='card'>
-                    <ul>
-                        {list.map((item) => (
-                            <li key={item.name}>
-                                <Link to={"/pokemon/"+ item.name}>
-                                    {item.name}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <Typography variant="h2" gutterBottom className='titulo'> 
+                    Escolha o seu preferido 
+                </Typography>
+                {list.map((item) => (
+                    <Button 
+                    variant="contained"
+                    key={item.name} 
+                    size="small"
+                    sx={{ m: 1}}
+                    >
+                        <Link to={"/pokemon/"+ item.name}>
+                            <p className="pokemonsName">
+                                {item.name}    
+                            </p>
+                        </Link>
+                    </Button>
+                ))}
             </div>
-        
         </>
     )
 }
