@@ -18,7 +18,7 @@ function notFoundPage() {
             </>
             
 
-            <img src={Ghosts} width="487rem" alt='Fantasmas'/>
+            <img src={Ghosts} width="500rem" alt='Fantasmas'/>
         </Box>
     )
 }

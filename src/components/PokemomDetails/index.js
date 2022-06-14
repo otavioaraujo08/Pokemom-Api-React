@@ -1,48 +1,37 @@
 import './index.css'
 import { Box, Button, LinearProgress, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom' 
+import { Link, useParams } from 'react-router-dom';
+import SendIcon from '@mui/icons-material/Send';
 import api_individual from '../../services/apiIndividual';
-import Ghosts from './ghosts.png'
+import NotFoundPage from '../NotFoundPage/index';
+import RandomPokemons from '../RandomPokemons';
 
 function PokemonsDetails() {
     const { id } = useParams()
 
     // Nossa lista que sera preenchida pela requisição
     const [list, setList] = useState([]);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(!id);
 
     // Chamando nossa função toda vez que o componente renderizar
     useEffect(() => {
         // Executar após essa requisição ser concluida, nos trazendo o data
         api_individual.get(id).then(({data}) => {
             setList(data)
-
-            console.log(data.moves)
         })
-        .catch((msgError) => {console.log(msgError)})
+        .catch(() => {
+            setError(true)})
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return(
         <>
-            {!id  && (
-                <Box className="notFoundPage">
-                    <>
-                        <Typography variant='h2' >
-                            Procurando fantasmas ? Página errada !
-                        </Typography>
-                        <Typography variant='h6' >
-                            Redirecionar para home !
-                        </Typography>
-                    </>
-                    
-
-                    <img src={Ghosts} width="480rem"/>
-                </Box>
+            {error && (
+                <NotFoundPage />
             )}
 
-            {id && (
+            {!error && (
                 <Box className='box'>
                     <Box className="informacoesUm">
                         <Box className="nome">
@@ -74,7 +63,29 @@ function PokemonsDetails() {
                                 Pokemon type:  {list?.types?.map((item) => item.type.name.concat(' '))}
                             </Typography>
                         </Box>
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <Link to={"/"}>
+                                <Button 
+                                    variant="contained"
+                                    endIcon={<SendIcon />}
+                                    size="large"
+                                    sx={{
+                                        mt: 4
+                                    }}
+                                >
+                                    Retornar para home
+                                </Button>
+                            </Link>
+                        </Box>
+
                     </Box>
+
                     <Box className='informacoesDois'>
                         <Box className='infos'>
                             <Typography 
@@ -148,6 +159,21 @@ function PokemonsDetails() {
                                     )
                                 })}
                             </Box>
+                        </Box>
+                        
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row-reverse',
+                                p: 1,
+                                m: 1,
+                                bgcolor: 'background.paper',
+                                borderRadius: 1,
+
+                              }}
+                        >
+                            <RandomPokemons/>
+                            <RandomPokemons/>
                         </Box>
                     </Box>
                 </Box>
