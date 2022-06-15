@@ -2,8 +2,11 @@ import { Box, Card, CardContent, CardMedia, IconButton, Typography } from "@mui/
 import HelpIcon from '@mui/icons-material/Help';
 import { useEffect, useState } from "react";
 import api_random from '../../services/apiIndividual';
+import { Link, useParams } from "react-router-dom";
 
 function RandomPokemons(){
+    const { id } = useParams()
+
     let random = Math.floor(Math.random() * 100) + 1;
     // Nossa lista que sera preenchida pela requisição
     const [list, setList] = useState([]);
@@ -15,7 +18,7 @@ function RandomPokemons(){
             setList(data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [id]);
     return(
         <>
             <Card sx={{ 
@@ -37,9 +40,9 @@ function RandomPokemons(){
 
                     <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
                         <IconButton aria-label="play/pause">
-                        <a href={"/pokemon/"+ list.name}>
+                        <Link to={"/pokemon/"+ list.name}>
                             <HelpIcon sx={{ height: 38, width: 38 }} />
-                        </a>
+                        </Link>
                         </IconButton>
                     </Box>
                 </Box>
